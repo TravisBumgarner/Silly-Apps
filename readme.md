@@ -7,9 +7,7 @@ I challenged a friend to name a fruit or veggie and I bet you there'd be a libra
 
 All links below point to GitHub or popular package libraries (NPM, PIP, etc.) however, I am in no way responsible if you download something malicious from one of these URLs.
 
-## 🍎 Fruits and Veggies 🥦
-
-## Veggies 🥦
+## 🥦 Veggies 🥦
 
 - [Asparagus](https://asparagus.cs.uni-potsdam.de/) - Answer set programming
 - [Broccoli](https://sourceforge.net/p/broccoli-lang/wiki/Home/) - Programming language
@@ -19,7 +17,7 @@ All links below point to GitHub or popular package libraries (NPM, PIP, etc.) ho
 - [Lettuce](http://lettuce.it/) - Behavior-driven development tool
 - [Yuca](https://github.com/gubatron/yuca) - A light-weight, in-memory, fast and simple to use search engine library
 
-## Fruits 🍎
+## 🍎 Fruits 🍎
 
 - [Avocado](https://github.com/TeamAvocado/Avocado) - A 3D engine written in the D programming language
 - [Blueberry](https://github.com/gosukiwi/Blueberry) - A script language with clean syntax, inspired from Ruby, CoffeeScript, and Python
@@ -34,7 +32,7 @@ All links below point to GitHub or popular package libraries (NPM, PIP, etc.) ho
 - [Quinoa](https://quinoacomputing.org/) - Adaptive computational fluid dynamics
 - [Strawberry](https://en.wikipedia.org/wiki/Strawberry_Perl) - Distribution of Perl programming language
 
-## Pies
+## 🥧 Fruit and Veggie Pies 🥧
 
 - [Apple Pie](https://esolangs.org/wiki/Apple_Pie) - Esoteric programming language
 - [Raspberry Pi](https://www.raspberrypi.org/documentation/usage/python/) - Mini computer
