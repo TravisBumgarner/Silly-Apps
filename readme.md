@@ -1,4 +1,7 @@
-I've worked with a lot of libraries named after fruits and veggies. I challenged a friend to name a fruit or veggie and I bet you there'd be a library with that name. Here's the collection.
+
+## 👋🏻 Introduction 👋🏻
+
+I challenged a friend to name a fruit or veggie and I bet you there'd be a library with that name. Here's the collection. I invite you to add your own.
 
 ## ⚠️ DANGER ⚠️
 
