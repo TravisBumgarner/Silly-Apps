@@ -1,7 +1,7 @@
 
 ## 👋🏻 Introduction 👋🏻
 
-I challenged a friend to name a fruit or veggie and I bet you there'd be a library with that name. Here's the collection. I invite you to add your own.
+I have challenged several people to name a fruit or veggie that wasn't also a tool found in programming. All of them have failed. Will you succeed? 
 
 ## ⚠️ DANGER ⚠️
 
