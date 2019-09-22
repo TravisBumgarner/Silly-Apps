@@ -48,14 +48,10 @@
         opacity: 1 !important;
       }
 
-      #event {
-        border: 0;
-        background-color: transparent;
-        color: inherit;
-        font: inherit;
-        cursor: pointer;
-        border-bottom: 3px solid white;
-        width: 5em;
+      #event div {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
       }
 
       #ask {
@@ -96,10 +92,7 @@
   </head>
   <body>
     <div id="question-container">
-      <p id="question">
-        Will the T
-        <button id="event" onclick="alert('hi')">catch fire</button> today?
-      </p>
+      <p id="question">Will the T <span id="event"></span>today?</p>
       <button id="ask" onclick="ask()">Ask</button>
     </div>
     <div id="response-container" class="hidden">
@@ -109,6 +102,17 @@
       <p id="message"></p>
     </div>
     <script>
+      (function() {
+        const availableMessages = ["catch fire", "be late", "derail"];
+
+        const eventSpan = document.getElementById("event");
+
+        const randomMessageIndex = Math.floor(
+          Math.random() * Math.floor(availableMessages.length)
+        );
+        eventSpan.innerHTML = availableMessages[randomMessageIndex];
+      })();
+
       const ask = () => {
         const questionContainer = document.getElementById("question-container");
         questionContainer.classList.add("hidden");
