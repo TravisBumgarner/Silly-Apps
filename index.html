@@ -38,7 +38,7 @@
         opacity: 0;
         transition: opacity 2s linear;
         z-index: 999;
-        max-width: 35vw;
+        max-width: 40%;
         text-align: center;
         position: relative;
         top: 5vw;
@@ -46,12 +46,6 @@
 
       .selected {
         opacity: 1 !important;
-      }
-
-      #event div {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
       }
 
       #ask {
@@ -67,6 +61,7 @@
 
       #question {
         font-size: 1.5em;
+        text-align: center;
         font-family: Arial, Helvetica, sans-serif;
       }
 
@@ -92,18 +87,24 @@
   </head>
   <body>
     <div id="question-container">
-      <p id="question">Will the T <span id="event"></span>today?</p>
+      <p id="question">Will the T <span id="event"></span> today?</p>
       <button id="ask" onclick="ask()">Ask</button>
     </div>
     <div id="response-container" class="hidden">
-      <svg id="triangle" viewbox="0 0 100 100" width="80%" height="80%">
+      <svg id="triangle" viewbox="0 0 100 100" width="100%" height="100%">
         <polygon points="0,90 50,10 100,90" class="triangle" />
       </svg>
       <p id="message"></p>
     </div>
     <script>
       (function() {
-        const availableMessages = ["catch fire", "be late", "derail"];
+        const availableMessages = [
+          "catch fire",
+          "be late",
+          "derail",
+          "get stuck between stations",
+          "flood"
+        ];
 
         const eventSpan = document.getElementById("event");
 
@@ -135,9 +136,7 @@
           "Ask again later.",
           "Better not tell you now.",
           "Cannot predict now.",
-          "Concentrate and ask again.",
-          "Don't count on it.",
-          "Outlook not so good."
+          "Concentrate and ask again."
         ];
 
         const messageContainer = document.getElementById("message");
