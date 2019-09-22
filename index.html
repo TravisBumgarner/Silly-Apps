@@ -1,83 +1,124 @@
 <html>
-	<head>
-		<title>Will the T catch fire today?</title>
-		<style>
-			body {
-				margin: 0px;
-				padding: 0px;
-				background-color: black;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 100vw;
-				height: 100vh;
-				opacity: 1;
-			}
-			#triangle {
-				opacity: 0;
-				transition: opacity 2.0s linear;
-				width: 0; 
-				height: 0; 
-				border-left: 40vw solid transparent;
-				border-right: 40vw solid transparent;
-				border-top: 60vw solid #065fd3;		
-				position: absolute;
-						
-			}
-			#message {
-				color: #4bd7fa;
-				box-sizing: border-box;
-				font-size: 100px;
-				opacity: 0;
-				transition: opacity 2.0s linear;
-				z-index: 999;
-				max-width: 40vw;
-				text-align: center;
-				position: relative;
-				top: -10vw;
-			}
-			.selected {
-				opacity: 1 !important;
-			}
-		</style>
-	</head>
-	<body>
-		<div id="triangle"></div>
-		<p id="message"></p>
-		<script>
-			(function(){
-				const availableMessages = [
-					"It is certain.",
-					"It is decidedly so.",
-					"Without a doubt.",
-					"Yes - definitely.",
-					"You may rely on it.",
-					"As I see it, yes.",
-					"Most likely.",
-					"Outlook good.",
-					"Yes.",
-					"Signs point to yes.",
-					"Reply hazy, try again.",
-					"Ask again later.",
-					"Better not tell you now.",
-					"Cannot predict now.",
-					"Concentrate and ask again.",
-					"Don't count on it.",
-					"Outlook not so good.",			
-				]
+  <head>
+    <title>Will the T catch fire today?</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <style>
+      @media only screen and (min-width: 800px) {
+        body {
+          font-size: 32px;
+        }
+        #triangle {
+          border-width: 40vw 40vw 40vw 0;
+        }
+      }
 
-				const messageContainer = document.getElementById('message')
-				const triangleContainer = document.getElementById('triangle')
-				const randomMessageIndex = Math.floor(Math.random() * Math.floor(availableMessages.length))
-				messageContainer.innerHTML = availableMessages[randomMessageIndex]
-				setTimeout(() => { 
-					messageContainer.classList.add('selected');
-					triangleContainer.classList.add('selected');
-				}, 200)
-			})()
-		</script>
+      @media only screen and (min-width: 1200px) {
+        body {
+          font-size: 48px;
+        }
+        #triangle {
+          border-width: 40vw 40vw 40vw 0;
+        }
+      }
 
-	</body>
+      @media only screen and (min-width: 1600px) {
+        body {
+          font-size: 64px;
+        }
+        #triangle {
+          border-width: 40vw 40vw 40vw 0;
+        }
+      }
+
+      body {
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #container {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 75vw;
+        max-height: 75vh;
+        width: 1000px;
+        height: 1000px;
+        opacity: 1;
+      }
+
+      #triangle {
+        fill: #065fd3;
+        position: absolute;
+      }
+
+      #message {
+        position: absolute;
+        color: #4bd7fa;
+        box-sizing: border-box;
+        font-size: 1.5em;
+        opacity: 0;
+        transition: opacity 2s linear;
+        z-index: 999;
+        max-width: 35vw;
+        text-align: center;
+        position: relative;
+        top: 5vw;
+      }
+
+      .selected {
+        opacity: 1 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <svg id="triangle" viewbox="0 0 100 100" width="80vw" height="80vw">
+        <polygon points="0,90 50,10 100,90" class="triangle" />
+      </svg>
+      <p id="message"></p>
+    </div>
+    <script>
+      (function() {
+        const availableMessages = [
+          "It is certain.",
+          "It is decidedly so.",
+          "Without a doubt.",
+          "Yes - definitely.",
+          "You may rely on it.",
+          "As I see it, yes.",
+          "Most likely.",
+          "Outlook good.",
+          "Yes.",
+          "Signs point to yes.",
+          "Reply hazy, try again.",
+          "Ask again later.",
+          "Better not tell you now.",
+          "Cannot predict now.",
+          "Concentrate and ask again.",
+          "Don't count on it.",
+          "Outlook not so good."
+        ];
+
+        const messageContainer = document.getElementById("message");
+        const triangleContainer = document.getElementById("triangle");
+        const randomMessageIndex = Math.floor(
+          Math.random() * Math.floor(availableMessages.length)
+        );
+        messageContainer.innerHTML = availableMessages[randomMessageIndex];
+        setTimeout(() => {
+          messageContainer.classList.add("selected");
+          triangleContainer.classList.add("selected");
+        }, 200);
+      })();
+    </script>
+  </body>
 </html>
-
-
