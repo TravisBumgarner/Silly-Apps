@@ -22,6 +22,7 @@ All links below point to GitHub or popular package libraries (NPM, PIP, etc.) ho
 - [Eggplant](https://en.wikipedia.org/wiki/Eggplant_Functional) - Automated testing
 - [Kale](https://github.com/darioncassel/kale) - A lisp-like language
 - [Lettuce](http://lettuce.it/) - Behavior-driven development tool
+- [Parsnip](https://cran.r-project.org/web/packages/parsnip/index.html) - A Common API to Modeling and Analysis Functions
 - [Yuca](https://github.com/gubatron/yuca) - A light-weight, in-memory, fast and simple to use search engine library
 
 ## 🍎 Fruits 🍎
@@ -34,6 +35,7 @@ All links below point to GitHub or popular package libraries (NPM, PIP, etc.) ho
 - [Kumquat](https://github.com/kickstarter/kumquat) - Rails Engine for rendering RMarkdown files
 - [Lemon](http://www.lemon-lang.org/) - Open source programing language
 - [Lime](https://github.com/lime-macro) - OO macro programming language
+- [Lychee](https://www.javascripting.com/view/lycheejs) - Environment-Independent JavaScript engine (HTML5 Canvas, V8GL, WebGL, native OpenGL, NodeJS)
 - [Mango](http://www.nongnu.org/mango/) - A general purpose programming language
 - [Olive](https://github.com/eileenchoe/olive) - Programming language for numerical computing
 - [Orange](https://orange.biolab.si/features/visual-programming/) - Data mining tool
