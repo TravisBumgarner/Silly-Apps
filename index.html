@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea id="inputtext"></textarea>
+    <div id="output"></div>
+
+
+    <script>
+        function sfc32(a, b, c, d) {
+            return function () {
+                a >>>= 0; b >>>= 0; c >>>= 0; d >>>= 0;
+                var t = (a + b) | 0;
+                a = b ^ b >>> 9;
+                b = c + (c << 3) | 0;
+                c = (c << 21 | c >>> 11);
+                d = d + 1 | 0;
+                t = t + d | 0;
+                c = c + t | 0;
+                return (t >>> 0) / 4294967296;
+            }
+        }
+        const seed = 0x9E3779B9
+        const getRand = sfc32(0x9E3779B9, 0x243F6A88, 0xB7E15162, seed);
+
+        const getOne = (options) => {
+            const rand = Math.floor(getRand() * options.length)
+            return options[rand]
+        }
+
+        const VALID_FONTS = [
+            "Arial",
+            "Arial Black",
+            "Verdana",
+            "Tahoma",
+            "Trebuchet MS",
+            "Impact",
+            "Times New Roman",
+            "Didot",
+            "Georgia",
+            "American Typewriter",
+            "Andalé Mono",
+            "Courier",
+            "Lucida Console",
+            "Monaco",
+            "Bradley Hand",
+            "Brush Script MT",
+            "Luminari",
+            "Comic Sans MS",
+        ]
+
+        const VALID_COLORS = [
+            "#66A5AD",
+            "#C4DFE6",
+            "#A2C523"
+        ]
+
+        const VALID_BACKGROUND_COLORS = [
+            "#00EB46",
+            "#07575B",
+            "#2E4600",
+            "#486B00"
+        ]
+
+        const VALID_PADDINGS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        const VALID_ROTATIONS = [-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10]
+        const VALID_SCALES = [0.8, 0.9, 1, 1.1, 1.2]
+        const VALID_FONT_WEIGHTS = [100, 200, 300, 400, 500, 600, 700, 800, 900]
+
+        const generateStyles = (char) => {
+            return `
+                font-family:
+                    ${getOne(VALID_FONTS)}
+                ;
+                color:
+                    ${getOne(VALID_COLORS)}
+                ;
+                padding: 
+                    ${getOne(VALID_PADDINGS)}px
+                    ${getOne(VALID_PADDINGS)}px
+                    ${getOne(VALID_PADDINGS)}px
+                    ${getOne(VALID_PADDINGS)}px
+                ;
+                background-color:
+                    ${char === ' ' ? 'transparent' : getOne(VALID_BACKGROUND_COLORS)}
+                ;
+                margin:
+                    10px
+                ;
+                display:
+                    inline-block
+                ;
+                transform: 
+                    rotate(${getOne(VALID_ROTATIONS)}deg)
+                    scale(
+                        ${getOne(VALID_SCALES)}, ${getOne(VALID_SCALES)}
+                    )
+                ;
+                font-size: 2rem;
+                font-weight:
+                    ${getOne(VALID_FONT_WEIGHTS)}
+                ;
+            `
+        }
+
+        const updateText = (text) => {
+            console.log(text)
+            const arr = text.split('').map(char => {
+                if (char === '\n') {
+                    const br = document.createElement('br')
+                    return br
+                }
+
+                const elem = document.createElement('span')
+                elem.innerHTML = char
+                elem.style.cssText = generateStyles(char)
+                return elem
+            })
+            const output = document.getElementById('output')
+            output.innerHTML = ''
+            arr.forEach(child => output.appendChild(child))
+        }
+    </script>
+
+    <script>
+        const textInput = document.getElementById('inputtext')
+        textInput.addEventListener('input', (event) => updateText(event.target.value))
+    </script>
+
+</body>
+
+</html>
