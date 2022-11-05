@@ -4,10 +4,10 @@ import numpy as np
 
 def gameboy(img):
     colors = [
-        [155, 188, 15], # Lightest
-        [139, 172, 15], # Light 
+        [15, 56, 15], # Darkest
         [48, 98, 48], # Darker
-        [15, 56, 15] # Darkest
+        [139, 172, 15], # Light 
+        [155, 188, 15], # Lightest
     ]
 
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
