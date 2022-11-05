@@ -1,6 +1,6 @@
 # Intro
 
-A tool for creating custom filters for your webcam to be used with video conferencing tools. 
+A tool for creating custom filters for your webcam to be used with video conferencing calls. 
 
 # Setup
 
