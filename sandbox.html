@@ -36,7 +36,6 @@
     const addDevicesToSelect = async () => {
         const mediaDevices = await navigator.mediaDevices.enumerateDevices();
 
-        console.log(mediaDevices)
         select.innerHTML = '';
         select.appendChild(document.createElement('option'));
         mediaDevices.forEach(mediaDevice => {

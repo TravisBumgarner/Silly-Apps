@@ -31,3 +31,7 @@ Navigate to http://localhost:8000/sandbox.html
 
 # Troubleshooting
 
+If you don't see the Virtual Camera - make sure it's installed and restart your computer.
+
+Not seeing the Virtual Camera in sandbox.html - make sure you're using the the server.
+
