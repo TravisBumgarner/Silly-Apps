@@ -23,14 +23,14 @@ for i_src in range(0,4):
         break
 
 
-with pyvirtualcam.Camera(width=OUTPUT_WIDTH, height=OUTPUT_HEIGHT, fps=30) as cam:
+with pyvirtualcam.Camera(width=OUTPUT_WIDTH, height=OUTPUT_HEIGHT, fps=60) as cam:
     while True:
         img = vs.read()
         img = imutils.resize(img, width=OUTPUT_WIDTH, height=OUTPUT_HEIGHT)
         img = imutils.opencv2matplotlib(img) 
 
         # img = gameboy(img)
-        img = theme_black_and_white(img)
+        img = theme_deep_beach(img)
         
         # Webcam sends RGB but we need BGR. 
         cv2.cvtColor(img, cv2.COLOR_RGB2BGR)

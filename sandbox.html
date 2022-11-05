@@ -11,7 +11,7 @@
             margin: 0;
         }
 
-        #video {
+        video {
             width: 480px;
             height: 270px;
         }
@@ -21,16 +21,12 @@
 <body>
     <div class="controls">
         <button id="button">Get camera</button>
-        <select id="select">
-            <option></option>
-        </select>
     </div>
-    <video autoplay="true" id="video"></video>
+    <!-- <video autoplay="true" id="video"></video> -->
+    <div id="videos"></div>
 </body>
 <script>
     const button = document.getElementById('button');
-    const select = document.getElementById('select');
-    const video = document.getElementById('video');
 
     (async function () {
         await navigator.mediaDevices.getUserMedia({ video: true });
@@ -38,31 +34,20 @@
 
     const addDevicesToSelect = async () => {
         const mediaDevices = await navigator.mediaDevices.enumerateDevices();
-
-        select.innerHTML = '';
-        select.appendChild(document.createElement('option'));
-        mediaDevices.forEach(mediaDevice => {
-            if (mediaDevice.kind === 'videoinput') {
-                const option = document.createElement('option');
-                option.value = mediaDevice.deviceId;
-                const label = mediaDevice.label;
-                const textNode = document.createTextNode(label);
-                option.appendChild(textNode);
-                select.appendChild(option);
+        mediaDevices.forEach(async mediaDevice => {
+            if (mediaDevice.kind === 'videoinput' && !mediaDevice.label.includes('Nikon')) {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { deviceId: mediaDevice.deviceId } });
+                const video = document.createElement('video');
+                video.srcObject = stream
+                video.autoplay = true
+                const videos = document.getElementById('videos');
+                videos.appendChild(video)
             }
         });
-        select.addEventListener('change', async () => {
-            const deviceId = document.getElementById("select").value;
-            const stream = await navigator.mediaDevices.getUserMedia({ video: { deviceId } });
-            video.srcObject = stream
-        })
     }
 
     button.addEventListener('click', addDevicesToSelect)
 
-
-
-    const webcam = document.getElementById("webcam");
 </script>
 
 </html>
