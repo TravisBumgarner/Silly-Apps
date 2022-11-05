@@ -28,3 +28,6 @@ Execute Script
 Start Test Server
 `pytel -m http.server` 
 Navigate to http://localhost:8000/sandbox.html
+
+# Troubleshooting
+
