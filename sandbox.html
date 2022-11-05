@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #webcam {
+            width: 500px;
+            height: 375px;
+            background-color: #666;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="controls">
+        <button id="button">Get camera</button>
+        <select id="select">
+            <option></option>
+        </select>
+    </div>
+    <video autoplay="true" id="video"></video>
+</body>
+<script>
+    const button = document.getElementById('button');
+    const select = document.getElementById('select');
+    const video = document.getElementById('video');
+
+    const addDevicesToSelect = async () => {
+        const mediaDevices = await navigator.mediaDevices.enumerateDevices();
+        console.log(mediaDevices)
+        select.innerHTML = '';
+        select.appendChild(document.createElement('option'));
+        mediaDevices.forEach(mediaDevice => {
+            if (mediaDevice.kind === 'videoinput') {
+                const option = document.createElement('option');
+                option.value = mediaDevice.deviceId;
+                const label = mediaDevice.label;
+                const textNode = document.createTextNode(label);
+                option.appendChild(textNode);
+                select.appendChild(option);
+            }
+        });
+        select.addEventListener('change', async () => {
+            const deviceId = document.getElementById("select").value;
+            const stream = await navigator.mediaDevices.getUserMedia({ video: { deviceId } });
+            video.srcObject = stream
+        })
+    }
+
+    button.addEventListener('click', addDevicesToSelect)
+
+
+
+    const webcam = document.getElementById("webcam");
+</script>
+
+</html>
