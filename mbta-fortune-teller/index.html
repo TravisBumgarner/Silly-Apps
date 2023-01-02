@@ -1,0 +1,155 @@
+<html>
+  <head>
+    <title>MBTA Status</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <style>
+      @media only screen and (min-width: 800px) {
+        body {
+          font-size: 32px;
+        }
+      }
+
+      @media only screen and (min-width: 1200px) {
+        body {
+          font-size: 48px;
+        }
+      }
+
+      body {
+        background-color: black;
+        color: white;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #triangle {
+        fill: #065fd3;
+        position: absolute;
+        opacity: 0;
+        transition: opacity 2s linear;
+      }
+
+      #message {
+        position: absolute;
+        color: #4bd7fa;
+        box-sizing: border-box;
+        font-size: 1.5em;
+        opacity: 0;
+        transition: opacity 2s linear;
+        z-index: 999;
+        max-width: 40%;
+        text-align: center;
+        position: relative;
+        top: 5vw;
+      }
+
+      .selected {
+        opacity: 1 !important;
+      }
+
+      #ask {
+        border: 0;
+        background-color: transparent;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
+        border: 3px solid white;
+        border-radius: 10px;
+        width: 4em;
+      }
+
+      #question {
+        font-size: 1.5em;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      #response-container,
+      #question-container {
+        margin: 0px;
+        padding: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 74vw;
+        height: 74vh;
+        max-width: 74vw;
+        max-height: 74vh;
+        padding: 13vh 13vw;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="question-container">
+      <p id="question">Will the T <span id="event"></span> today?</p>
+      <button id="ask" onclick="ask()">Ask</button>
+    </div>
+    <div id="response-container" class="hidden">
+      <svg id="triangle" viewbox="0 0 100 100" width="100%" height="100%">
+        <polygon points="0,90 50,10 100,90" class="triangle" />
+      </svg>
+      <p id="message"></p>
+    </div>
+    <script>
+      (function() {
+        const availableMessages = [
+          "catch fire",
+          "be late",
+          "derail",
+          "get stuck between stations",
+          "flood"
+        ];
+
+        const eventSpan = document.getElementById("event");
+
+        const randomMessageIndex = Math.floor(
+          Math.random() * Math.floor(availableMessages.length)
+        );
+        eventSpan.innerHTML = availableMessages[randomMessageIndex];
+      })();
+
+      const ask = () => {
+        const questionContainer = document.getElementById("question-container");
+        questionContainer.classList.add("hidden");
+
+        const answerContainer = document.getElementById("response-container");
+        answerContainer.classList.remove("hidden");
+
+        const availableMessages = [
+          "It is certain.",
+          "It is decidedly so.",
+          "Without a doubt.",
+          "Yes - definitely.",
+          "You may rely on it.",
+          "As I see it, yes.",
+          "Most likely.",
+          "Outlook good.",
+          "Yes.",
+          "Signs point to yes.",
+          "Reply hazy, try again.",
+          "Ask again later.",
+          "Better not tell you now.",
+          "Cannot predict now.",
+          "Concentrate and ask again."
+        ];
+
+        const messageContainer = document.getElementById("message");
+        const triangleContainer = document.getElementById("triangle");
+        const randomMessageIndex = Math.floor(
+          Math.random() * Math.floor(availableMessages.length)
+        );
+        messageContainer.innerHTML = availableMessages[randomMessageIndex];
+        setTimeout(() => {
+          messageContainer.classList.add("selected");
+          triangleContainer.classList.add("selected");
+        }, 200);
+      };
+    </script>
+  </body>
+</html>
