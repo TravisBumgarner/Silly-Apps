@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        video {
+            width: 480px;
+            height: 270px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="controls">
+        <button id="button">Get camera</button>
+    </div>
+    <!-- <video autoplay="true" id="video"></video> -->
+    <div id="videos"></div>
+</body>
+<script>
+    const button = document.getElementById('button');
+
+    (async function () {
+        await navigator.mediaDevices.getUserMedia({ video: true });
+    })()
+
+    const addDevicesToSelect = async () => {
+        const mediaDevices = await navigator.mediaDevices.enumerateDevices();
+        mediaDevices.forEach(async mediaDevice => {
+            if (mediaDevice.kind === 'videoinput' && !mediaDevice.label.includes('Nikon')) {
+                const stream = await navigator.mediaDevices.getUserMedia({ video: { deviceId: mediaDevice.deviceId } });
+                const video = document.createElement('video');
+                video.srcObject = stream
+                video.autoplay = true
+                const videos = document.getElementById('videos');
+                videos.appendChild(video)
+            }
+        });
+    }
+
+    button.addEventListener('click', addDevicesToSelect)
+
+</script>
+
+</html>
