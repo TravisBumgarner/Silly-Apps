@@ -1,0 +1,12 @@
+- [x] Initial Commit
+- [x] Setup Boilerplate
+- [ ] Create list of things to shuffle
+- [x] Build slot machine first
+- [x] Display shuffled things on screen
+- [x] Do shuffling
+- [x] Set variable number of things to be shuffled
+- [ ] Add some special effects ?????
+- [ ] Make it pretty 
+- [ ] Deploy to GCP
+- [ ] Setup subdomain
+- [ ] Add some social media links
