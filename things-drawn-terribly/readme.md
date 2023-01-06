@@ -1,0 +1,1 @@
+First ever JS project. Created 2015-03-18 with Khan Academy. Originally coded at https://www.khanacademy.org/computer-programming/final-drawing-program/5844163607920640
