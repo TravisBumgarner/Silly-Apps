@@ -7,8 +7,7 @@
 
 # Deploy
 
-1) Run `gcloud builds submit --tag gcr.io/stitch-it-311a5/stitchit`
-2) Run `gcloud beta run deploy --image gcr.io/stitch-it-311a5/stitchit --platform=managed --region=us-east1`
+1) `gcloud config set project silly-side-projects && gcloud builds submit --tag gcr.io/silly-side-projects/stitch-it && gcloud run deploy stitch-it --image gcr.io/silly-side-projects/stitch-it --platform managed --region us-east1`
 
 # To Do
 
