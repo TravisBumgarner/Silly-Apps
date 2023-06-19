@@ -58,17 +58,22 @@
         const VALID_COLORS = [
             "#66A5AD",
             "#C4DFE6",
-            "#A2C523"
+            "#A2C523",
+            "#F6D258",
         ]
 
         const VALID_BACKGROUND_COLORS = [
             "#00EB46",
             "#07575B",
             "#2E4600",
-            "#486B00"
+            "#486B00",
+            "#FFD800",
+            "#FF8600",
+            "#FF0000",
+            "#FF00FF",
         ]
 
-        const VALID_PADDINGS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        const VALID_PADDINGS = [-6, -4, -2, 0, 2, 4, 6, 8, 10]
         const VALID_ROTATIONS = [-10, -8, -6, -4, -2, 0, 2, 4, 6, 8, 10]
         const VALID_SCALES = [0.8, 0.9, 1, 1.1, 1.2]
         const VALID_FONT_WEIGHTS = [100, 200, 300, 400, 500, 600, 700, 800, 900]
@@ -89,9 +94,6 @@
                 ;
                 background-color:
                     ${char === ' ' ? 'transparent' : getOne(VALID_BACKGROUND_COLORS)}
-                ;
-                margin:
-                    10px
                 ;
                 display:
                     inline-block
